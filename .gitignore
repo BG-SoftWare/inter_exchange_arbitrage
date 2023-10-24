@@ -1,0 +1,7 @@
+.idea/
+bridges_config/binance.json
+bridges_config/coinsbit.json
+exchanges_config/Binance.json
+exchanges_config/Coinsbit.json
+logs/*.txt
+config.json
