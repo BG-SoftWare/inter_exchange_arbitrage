@@ -1,3 +1,64 @@
+[ENG](#ENG) || [RUS](#RUS)
+
+# ENG
+
+<h1 align=center>Inter-Exchange Arbitrage</h1>
+
+This project is a program to automate the search and implementation of inter-exchange arbitrage. That is, assets are traded on different platforms (exchanges).
+In this case, a trader earns on the difference between the rates of one asset on different exchanges.
+Since the arbitrage window in such cases is very short (from several milliseconds to several minutes depending on the exchanges), it is very difficult to do it manually.
+
+<h2 align=center>Contents</h2>
+
+1. [Features](#Features)
+2. [Technologies](#Technologies)
+3. [Preparing to work](#Preparing-to-work)
+4. [Usage](#Usage)
+5. [DISCLAIMER](#DISCLAIMER)
+
+## Features
+The main features of this application include:
+  + fully autonomous (the user only needs to make initial settings and run the program);
+  + easy to scale (microservice architecture allows adding modules without modifying existing code);
+  + use of gRPC (increases the speed of interaction and saves the amount of information transferred between modules);
+  + each module (gRPC adapter, business logic) can be located on different servers;
+  + any number of currency pairs (each running copy processes one pair (for example, BTCUSDT) on two exchanges. You can run the required number of copies of the program, preliminarily changing the settings for the required currency pairs);
+  + easy adaptation to different exchanges.
+
+## Technologies
+
+| Technology | Description |
+| ----------- | ----------- |
+| Python    | Programming language in which the project is implemented   |
+| MySQL    | Relational database for storing transaction history   |
+| SQLAlchemy    | SQL toolkit and Object Relational Mapper that gives application developers the full power and flexibility of SQL   |
+| grpcio    | With the help of gRPC in this project "communication" between different modules is realized, which allows to increase the speed of interaction and significantly reduce the amount of transmitted information   |
+| requests    | An elegant and simple HTTP library for Python   |
+
+## Preparing to work
+1. Install [Python](https://www.python.org/downloads/)
+2. Download the source code of the project
+3. Deploy the virtual environment (venv) in the project folder. To do this, open a terminal in the project folder and enter the command:  
+   `python3 -m venv venv`
+4. Activate the virtual environment with the command  
+   `source venv/bin/activate`
+5. Install the project dependencies, which are located in the requirements.txt file. To do this, enter the command in the terminal:  
+   `pip install -r requirements.txt`
+6. Change the values in the file `definitions.py`
+7. Change the values in the file `.env.example` and rename it to `.env`
+
+## Usage
+To start, specify the name to be assigned to the process in the buildname file and run the start.sh file (in the current terminal window) or the start_in_background.sh file (if you want to run this as a background process) for execution.
+
+## DISCLAIMER
+The user of this software acknowledges that it is provided "as is" without any express or implied warranties. 
+The software developer is not liable for any direct or indirect financial losses resulting from the use of this software. 
+The user is solely responsible for his/her actions and decisions related to the use of the software.
+
+---
+
+# RUS
+
 <h1 align=center>Inter-Exchange Arbitrage</h1>
 
 Этот проект представляет собой программу для автоматизации поиска и реализации межбиржевого арбитража. То есть активы торгуются на разных площадках (биржах).
@@ -21,7 +82,7 @@
   + любое количество валютных пар (каждая запущенная копия обрабатывает одну пару (например, BTCUSDT) на двух биржах. Вы можете запустить нужное количество копий программы, предварительно изменяя настройки под нужные валютные пары);
   + простота адаптации под разные биржи.
 
-## Используемые технологии и библиотеки
+## Технологии
 
 | Технология / Библиотека | Описание |
 | ----------- | ----------- |
@@ -50,3 +111,4 @@
 Пользователь этого программного обеспечения подтверждает, что оно предоставляется "как есть", без каких-либо явных или неявных гарантий. 
 Разработчик программного обеспечения не несет ответственности за любые прямые или косвенные финансовые потери, возникшие в результате использования данного программного обеспечения. 
 Пользователь несет полную ответственность за свои действия и решения, связанные с использованием программного обеспечения.
+
